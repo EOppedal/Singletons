@@ -15,6 +15,10 @@ public class Singleton<T> : MonoBehaviour where T : Component {
         InitializeSingleton();
     }
 
+    private void OnDestroy() {
+        instance = null;
+    }
+
     protected virtual void InitializeSingleton() {
         if (instance == null) {
             instance = this as T;
